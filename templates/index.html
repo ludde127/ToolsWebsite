@@ -1,0 +1,27 @@
+{% extends "base_template.html" %}
+{%block title %}
+Index
+{% endblock %}
+{% block content %}
+    <div class="container" style="margin-top:10vh;">
+
+      <div class="starter-template">
+        <h1>Olika användbara verktyg!</h1>
+        <p class="lead">Vad är det du behöver?<br> Vålj något av alternativen nedan.</p>
+      </div>
+
+      <div>
+        {% for tool in tools %}
+          <div class="card">
+              <h5 class="card-header">{{tool.name}}</h5>
+              <div class="card-body">
+                <h5 class="card-title">Info</h5>
+                <p class="card-text">{{tool.desc}}</p>
+                <a href="{{url_for(tool.view)}}" class="btn btn-primary">Använd!</a>
+              </div>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div><!-- /.container -->
+{% endblock %}
