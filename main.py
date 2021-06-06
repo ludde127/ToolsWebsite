@@ -20,7 +20,8 @@ def render(template, **kwargs):
 
 @app.route('/merit')
 def merit():
-    return render(_tools["merit"].template)
+    tool_ = _tools["merit"]
+    return render(tool_.template, merit=tool_, js=tool_.js)
 
 
 @app.route("/")
